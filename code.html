@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PHOTON CTO - PUMP HOLD ON TON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed": "#390036",
+                "surface-tint": "#00dbe9",
+                "on-secondary-fixed-variant": "#82007d",
+                "outline": "#849495",
+                "on-primary-fixed": "#002022",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#5700c9",
+                "on-secondary": "#5c0058",
+                "surface-container-lowest": "#0e0e14",
+                "inverse-surface": "#e4e1ea",
+                "tertiary-container": "#e1d2ff",
+                "surface-container-low": "#1b1b22",
+                "tertiary-fixed-dim": "#d1bcff",
+                "on-error": "#690005",
+                "on-tertiary-fixed": "#23005b",
+                "on-primary-fixed-variant": "#004f54",
+                "on-primary": "#00363a",
+                "primary-fixed-dim": "#00dbe9",
+                "surface": "#131319",
+                "surface-container": "#1f1f26",
+                "secondary-fixed": "#ffd7f3",
+                "error-container": "#93000a",
+                "surface-container-highest": "#35343b",
+                "on-tertiary": "#3c0090",
+                "tertiary-fixed": "#e9ddff",
+                "error": "#ffb4ab",
+                "on-surface": "#e4e1ea",
+                "outline-variant": "#3b494b",
+                "inverse-on-surface": "#303037",
+                "on-background": "#e4e1ea",
+                "on-primary-container": "#006970",
+                "on-secondary-container": "#51004d",
+                "on-tertiary-container": "#7213ff",
+                "on-surface-variant": "#b9cacb",
+                "secondary-fixed-dim": "#ffabef",
+                "surface-variant": "#35343b",
+                "inverse-primary": "#006970",
+                "surface-dim": "#131319",
+                "secondary": "#ffabef",
+                "primary-container": "#00f0ff",
+                "tertiary": "#faf3ff",
+                "background": "#131319",
+                "primary-fixed": "#7df4ff",
+                "surface-container-high": "#2a2930",
+                "primary": "#dbfcff",
+                "secondary-container": "#ff0df5",
+                "surface-bright": "#393840"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "64px",
+                "unit": "4px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "container-max": "1280px"
+            },
+            "fontFamily": {
+                "display-xl": ["Space Grotesk"],
+                "headline-lg": ["Space Grotesk"],
+                "label-mono": ["JetBrains Mono"],
+                "body-md": ["Geist"],
+                "headline-lg-mobile": ["Space Grotesk"],
+                "cta-button": ["Space Grotesk"]
+            },
+            "fontSize": {
+                "display-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                "cta-button": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        @keyframes scan-line {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 219, 233, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(0, 219, 233, 0.8); }
+        }
+
+        @keyframes magenta-pulse {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 13, 245, 0.3)); }
+            50% { filter: drop-shadow(0 0 15px rgba(255, 13, 245, 0.7)); }
+        }
+
+        .glow-primary-cyan:hover {
+            box-shadow: 0 0 20px rgba(0, 219, 233, 0.6);
+        }
+
+        .scan-line-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-line-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 219, 233, 0.5);
+            animation: scan-line 2s linear infinite;
+        }
+
+        .hero-background {
+            background-image: linear-gradient(to bottom, rgba(19, 19, 25, 0.4), rgba(19, 19, 25, 1)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkdeg054zpULXhGLf8LzGjOq3VoSnj07QT0oUkzih1Age5DsmzfhdAVwPImjzhHgP9vcVO9xMfv2BUvJbkSEVW-X--n3nb6RlFJVflArtJVY19K2rb5MVaXJpZguzHejaaUA56xAXplcoi3VyXuNA-0AMje_ijhDnZ_4fAKFCtZotFuONJbZ7_GTjUA-QaR8Ps4ll5vL1FPnNn5ylRwprpO3Qi-DK8qYa9DDFlegZPxZv9oxE4GyKBHsnDfT_kz8Tm6L80flZXwxRF');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .faceted-border {
+            clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
+        }
+
+        .glass-card {
+            background: rgba(13, 13, 26, 0.8);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(0, 219, 233, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-surface-tint selection:text-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Section -->
+<header class="fixed top-0 w-full flex justify-between items-center px-4 md:px-margin-desktop h-20 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl z-50 border-b border-surface-tint/20 shadow-[0_4px_30px_rgba(0,219,233,0.15)]">
+<div class="flex items-center gap-2">
+<span class="font-display-xl text-headline-sm md:text-headline-lg text-surface-tint dark:text-surface-tint drop-shadow-[0_0_10px_rgba(0,219,233,0.8)] tracking-tight">PHOTON CTO</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-mono text-label-mono uppercase tracking-widest text-surface-tint border-b-2 border-surface-tint pb-1 transition-all duration-200" href="#">Chart</a>
+<a class="font-label-mono text-label-mono uppercase tracking-widest text-on-surface-variant hover:text-surface-tint transition-colors duration-300" href="#">DEX</a>
+<a class="font-label-mono text-label-mono uppercase tracking-widest text-on-surface-variant hover:text-surface-tint transition-colors duration-300" href="#">Twitter</a>
+<a class="font-label-mono text-label-mono uppercase tracking-widest text-on-surface-variant hover:text-surface-tint transition-colors duration-300" href="#">Telegram</a>
+</nav>
+<button class="scan-line-btn px-6 py-2 bg-surface-tint text-surface font-label-mono font-bold uppercase tracking-wider rounded-none hover:glow-primary-cyan scale-105 transition-all duration-200">
+        BUY $PHOTON
+    </button>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center hero-background px-4 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+<div class="z-10 w-full max-w-container-max flex flex-col md:flex-row items-center justify-between gap-12 mt-12">
+<!-- Text Content -->
+<div class="flex-1 text-center md:text-left space-y-6">
+<h2 class="font-display-xl text-headline-lg-mobile md:text-display-xl text-surface-tint drop-shadow-[0_0_15px_rgba(0,219,233,0.6)] animate-pulse">
+                    PHOTON CTO
+                </h2>
+<p class="font-display-xl text-headline-sm md:text-headline-lg text-on-surface-variant uppercase tracking-tighter italic">
+                    PUMP HOLD ON TON
+                </p>
+<!-- CA Widget -->
+<div class="glass-card p-4 md:p-6 faceted-border border-surface-tint/30 max-w-lg mx-auto md:mx-0 shadow-[0_0_20px_rgba(255,13,245,0.1)]">
+<p class="text-[10px] md:text-label-mono text-secondary mb-2 uppercase tracking-widest font-bold">Smart Contract Address</p>
+<div class="flex items-center gap-3 bg-surface-container-low p-3 border border-outline-variant/30">
+<code class="font-label-mono text-[11px] md:text-sm text-surface-tint break-all truncate">EQCYRHQTqqEyHTYRH6zwwWl5wA7SBPhU5AdgMsI_qzp3JbQ5</code>
+<button class="p-2 bg-surface-tint/10 hover:bg-surface-tint/20 text-surface-tint transition-all" onclick="navigator.clipboard.writeText('EQCYRHQTqqEyHTYRH6zwwWl5wA7SBPhU5AdgMsI_qzp3JbQ5'); showCopyFeedback(this)">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<div class="pt-8">
+<button class="scan-line-btn px-10 py-5 bg-secondary-container text-on-secondary-fixed font-cta-button uppercase tracking-widest hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(255,13,245,0.4)] animate-[glow-pulse_3s_infinite]">
+                        JOIN THE LIGHT SPEED
+                    </button>
+</div>
+</div>
+<!-- Hero Image (Character) -->
+<div class="flex-1 relative flex justify-center items-center">
+<div class="absolute inset-0 bg-surface-tint/20 blur-[100px] rounded-full animate-pulse"></div>
+<img alt="PHOTON CTO Mascot" class="relative z-10 w-full max-w-[500px] drop-shadow-[0_0_40px_rgba(0,219,233,0.4)] transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw8bjn2QZYED5EgOYfk1hIitNuZ5hHLsNEivUH5l1fGLh2i2eHRpYP6clDpW1FgWwx_GvGrFbp6AEyCKZqc4WMPKou12oJKq939FyWhnWH7xAFPfNuG9VtDmcGcq3Gi05f3mcPn7u7Zg0gQeVK8xjhJwhfpHfrvQmHpUeDvtEjeuaW9p0pM-ipsuSGjH9SohVxWSi1VxULewwth8FwkdYbHGFUAMaShvPomND6kWIeloUPkbUpJZ3VbBJHF2ekdFENt4f2ZyW6CFj2"/>
+</div>
+</div>
+</section>
+<!-- Stats Section (Bento Style) -->
+<section class="py-24 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat 1 -->
+<div class="glass-card p-8 faceted-border group hover:border-surface-tint/60 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-surface-tint text-4xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<div class="h-1 w-12 bg-surface-tint/20 rounded-full overflow-hidden">
+<div class="h-full bg-surface-tint w-1/2 animate-[scan-line_2s_linear_infinite]"></div>
+</div>
+</div>
+<h3 class="font-label-mono text-on-surface-variant uppercase mb-2">Total Supply</h3>
+<p class="font-display-xl text-3xl md:text-4xl text-surface-tint group-hover:glow-primary-cyan transition-all">1,000,000,000</p>
+<p class="text-xs text-on-surface-variant/60 mt-4 uppercase font-bold italic">FAIR DISTRIBUTION</p>
+</div>
+<!-- Stat 2 -->
+<div class="glass-card p-8 faceted-border group hover:border-secondary/60 transition-all duration-300 border-secondary/20">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div class="animate-pulse flex space-x-1">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<div class="w-2 h-2 rounded-full bg-secondary/50"></div>
+</div>
+</div>
+<h3 class="font-label-mono text-on-surface-variant uppercase mb-2">LP Burned</h3>
+<p class="font-display-xl text-3xl md:text-4xl text-secondary">100% BURNED</p>
+<p class="text-xs text-on-surface-variant/60 mt-4 uppercase font-bold italic">SECURE LIQUIDITY</p>
+</div>
+<!-- Stat 3 -->
+<div class="glass-card p-8 faceted-border group hover:border-surface-tint/60 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-surface-tint text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-mono text-xs text-surface-tint px-2 py-1 border border-surface-tint/30">VERIFIED</span>
+</div>
+<h3 class="font-label-mono text-on-surface-variant uppercase mb-2">Ownership</h3>
+<p class="font-display-xl text-3xl md:text-4xl text-surface-tint uppercase">RENOUNCED</p>
+<p class="text-xs text-on-surface-variant/60 mt-4 uppercase font-bold italic">COMMUNITY CONTRACT</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Content Area (English Hook) -->
+<section class="py-20 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at center, #00dbe9 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="px-4 md:px-margin-desktop max-w-3xl mx-auto text-center">
+<h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-surface-tint mb-8 uppercase">THE POWER OF LIGHT</h2>
+<p class="font-body-md text-on-surface-variant mb-10 leading-relaxed text-lg">
+                PHOTON CTO is more than just a meme project. We are a community-driven movement on the TON network. With fully burned liquidity and renounced ownership, PHOTON belongs to you. Join us now and let's fly to the moon together!
+            </p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="flex items-center gap-2 font-label-mono text-surface-tint hover:underline transition-all" href="#">
+<span class="material-symbols-outlined">menu_book</span> VIEW WHITEPAPER
+                </a>
+<a class="flex items-center gap-2 font-label-mono text-surface-tint hover:underline transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span> VIEW CHART
+                </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Section -->
+<footer class="bg-surface-container-lowest border-t border-secondary/30 pt-16 pb-8">
+<div class="flex flex-col md:flex-row justify-between items-center px-4 md:px-margin-desktop w-full max-w-container-max mx-auto gap-8 mb-12">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-display-xl text-headline-sm text-surface-tint">PHOTON CTO</span>
+<p class="text-on-surface-variant/60 font-body-md max-w-xs uppercase text-xs tracking-widest font-bold">THE FASTEST MEME ON TON NETWORK</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-label-mono text-label-mono text-on-surface-variant/60 hover:text-surface-tint transition-all duration-300" href="#">Whitepaper</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant/60 hover:text-surface-tint transition-all duration-300" href="#">Tokenomics</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant/60 hover:text-surface-tint transition-all duration-300" href="#">Privacy</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant/60 hover:text-surface-tint transition-all duration-300" href="#">Support</a>
+</nav>
+<div class="flex gap-4">
+<a class="w-12 h-12 rounded-full border border-surface-tint/20 flex items-center justify-center text-surface-tint hover:bg-surface-tint/10 transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+<a class="w-12 h-12 rounded-full border border-surface-tint/20 flex items-center justify-center text-surface-tint hover:bg-surface-tint/10 transition-all" href="#">
+<span class="material-symbols-outlined">send</span>
+</a>
+</div>
+</div>
+<div class="text-center px-4">
+<div class="inline-flex items-center gap-3 bg-surface p-3 border border-outline-variant/20 mb-6">
+<img alt="TON Logo" class="w-6 h-6 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVTo2Sq-VqQqAwtJco9jLjeSsCc3t_SWJMLcNbuP7mRdEeqtLDJso-bsi_bjTNSrxTR21dvcF6rqWSUZXgOMyw7rgkelKtQyKZI_X71U4ny6V5Mk84TjMDwMKMZzhErzTeGv9OA8tLujftpku3Y1JYIDvLvb7ljwIRDzUAJYrkdCbc2XoHQdMbTHunyDWqHFNcr8u3TZYNHiQU_SxmJUULCgBsBuxkHxV6EkJ-OtGYMIxfwVhI9P5Favox3e0J8TduTavd_UW_6OBZ"/>
+<span class="font-label-mono text-xs text-on-surface-variant/40 uppercase tracking-[0.2em]">POWERED BY TON BLOCKCHAIN</span>
+</div>
+<p class="font-label-mono text-[10px] text-on-surface-variant/40">© 2024 PHOTON CTO. ALL RIGHTS RESERVED. TRADING CRYPTOCURRENCY CARRIES HIGH RISK.</p>
+</div>
+</footer>
+<script>
+    // Micro-interactions and effects
+    document.addEventListener('mousemove', (e) => {
+        // Subtle cursor interactive logic could go here if needed
+    });
+
+    // Pulsing animation sync
+    const activeElements = document.querySelectorAll('.animate-pulse');
+    activeElements.forEach(el => {
+        el.style.animationDuration = (Math.random() * 2 + 1) + 's';
+    });
+
+    // Copy feedback
+    function showCopyFeedback(btn) {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm">done</span>';
+        setTimeout(() => btn.innerHTML = original, 2000);
+    }
+</script>
+</body></html>
